@@ -1,9 +1,9 @@
 # jepa-world-model
 
 a small world model built around a **jepa** (joint embedding predictive
-architecture) objective, written from scratch in pytorch. i built it to actually
-understand the idea behind lecun's jepa: instead of predicting the future in
-pixels, you predict it in **representation space**.
+architecture) objective, written from scratch in pytorch. i built it for a school
+project to actually understand the idea behind lecun's jepa: instead of
+predicting the future in pixels, you predict it in **representation space**.
 
 the toy world is a ball bouncing in a 2d box, pushed around by actions. the model
 only ever sees small grayscale frames, never the true coordinates, and it learns
@@ -16,18 +16,6 @@ jepa-world-model/
 ├── train.py    # training loop
 └── viz.py      # probe + rollout + all the plots
 ```
-
-## run it
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-python train.py --steps 4000
-python viz.py
-```
-
-~0.16M params, trains in a couple of minutes on cpu / apple mps.
 
 ## the idea
 
@@ -98,7 +86,3 @@ it's a toy on purpose - one ball, simple dynamics - so the whole thing trains in
 minutes and you can actually see what the latent learned. the same recipe (encode,
 predict in latent, ema target, no pixel reconstruction) is what scales up to
 i-jepa on images and to world models for planning.
-
-## license
-
-mit.
